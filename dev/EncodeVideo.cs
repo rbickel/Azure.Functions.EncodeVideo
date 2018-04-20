@@ -17,14 +17,15 @@ namespace Apollo.Functions
         private static readonly string FFMpegPath = Environment.GetEnvironmentVariable("FFMPEG:Path");
         private static readonly string FFProbePath = Environment.GetEnvironmentVariable("FFPROBE:Path");
         private const string VideoEncodedNameExtension = ".h264";
+        private const string ContainerName = "videos";
 
         [FunctionName(nameof(Encode))]
         public static async Task Encode(
-            [BlobTrigger("network/{name}.{ext}")] Stream inputBlob,
+            [BlobTrigger(ContainerName+"/{name}.{ext}")] Stream inputBlob,
             string name,
             string ext,
             ExecutionContext context,
-            [Blob("network/{name}.{ext}" + VideoEncodedNameExtension + ".mp4", FileAccess.ReadWrite)] CloudBlockBlob output,
+            [Blob(ContainerName+"/{name}.{ext}" + VideoEncodedNameExtension + ".mp4", FileAccess.ReadWrite)] CloudBlockBlob output,
             TraceWriter log)
         {
 

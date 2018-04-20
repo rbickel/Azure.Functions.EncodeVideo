@@ -4,7 +4,7 @@
   "bindings": [
     {
       "type": "blobTrigger",
-      "path": "network/{name}.{ext}",
+      "path": "videos/{name}.{ext}",
       "name": "inputBlob"
     }
   ],
