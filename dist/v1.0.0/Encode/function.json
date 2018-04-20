@@ -1,0 +1,14 @@
+{
+  "generatedBy": "Microsoft.NET.Sdk.Functions-1.0.13",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "blobTrigger",
+      "path": "network/{name}.{ext}",
+      "name": "inputBlob"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "../bin/Azure.Functions.EncodeVideo.dll",
+  "entryPoint": "Apollo.Functions.EncodeVideo.Encode"
+}
